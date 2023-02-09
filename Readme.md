@@ -8,18 +8,6 @@
 	- etat de la machine
 	- nb heure de maintenance
 
-- Interventions Préventive
-	- id
-	- description
-	- occurence
-	- machine (foreignkey)
-
-- Taches
-	- id
-	- description
-	- intervention (foreignkey)
-	- ? prorité ?
-
 - Panne
 	- id
 	- description
@@ -34,13 +22,30 @@
 	- nb heure d'arret
 	- panne (foreignkey)
 	- technicien en charge
-	-
+
+### -----V2-------
+
+
+- Interventions Préventive
+	- id
+	- description
+	- occurence
+	- machine (foreignkey)
+
+- Taches
+	- id
+	- description
+	- intervention (foreignkey)
+	- ? prorité ?
 
 - Technicien
 	- id
 	- name
 	- disponibiliter
 	- skill
+
+
+
 
 ## Fonctionalités
 
@@ -63,7 +68,7 @@
 [] Affichage de l'intervention currative assigné a une panne
 
 
---------V2------------
+### -----V2-------
 
 [] Création de tache
 
