@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+import tasks.views as views
 
 urlpatterns = [
+    path('', views.index, name="home"),
+    path('add-machines', views.add_machine, name="add-machine"),
     path('admin/', admin.site.urls),
 ]

@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>GMAO PADDY</title>
+
+    <script src="https://unpkg.com/htmx.org@1.8.5"></script>
+
 </head>
 <body>
-$END$
+    <h1>GMAO</h1>
+
+    {% for machine in machines %}
+        <h2>{{ machine.name }}</h2>
+    {% endfor %}
+
+    <form method="POST" action="{% url 'add-machine' %}">
+        {%  csrf_token %}
+        <input type="text" name="machine-name">
+        <button type="submit">Ajouter une machine</button>
+
+    </form>
+
 </body>
 </html>

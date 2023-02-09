@@ -44,7 +44,26 @@
 
 ## Fonctionalités
 
-[] Création de machine
+[x] Création de machine
+
+[] Déclaration de panne
+
+[] Affichage des panne
+
+[] Affichage des panne non traité
+
+[] Affichage des panne en cours 
+
+[] Affichage des panne traité
+
+[] Affichage des panne traité par machine
+
+[] Crée une intervention currative
+
+[] Affichage de l'intervention currative assigné a une panne
+
+
+--------V2------------
 
 [] Création de tache
 
@@ -64,20 +83,4 @@
 
 [] Affichage des interventions préventive assigné a 1 tech
 
-[] Déclaration de panne
-
-[] Affichage des panne
-
-[] Affichage des panne non traité
-
-[] Affichage des panne en cours 
-
-[] Affichage des panne traité
-
-[] Affichage des panne traité par machine
-
 [] Assigné une panne a un tech
-
-[] Crée une intervention currative
-
-[] Affichage de l'intervention currative assigné a une panne
