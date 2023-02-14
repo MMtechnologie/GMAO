@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MACHINES</title>
+</head>
+<body>
+    <h1>LISTE DES MACHINES</h1>
+
+    {% for machine in machines %}
+        <h2>{{ machine.name }}</h2>
+    {% endfor %}
+
+    <form method="POST" action="{% url 'add-machine' %}">
+        {%  csrf_token %}
+        <input type="text" name="machine-name">
+        <button type="submit">Ajouter une machine</button>
+
+</body>
+</html>
