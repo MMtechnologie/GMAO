@@ -20,6 +20,17 @@
         <button type="submit">Ajouter une machine</button>
 
     </form>
+    <form method="POST" action="{% url 'add-pane' %}">
+        {%  csrf_token %}
+        <input type="text" name="panne-machine">
+        <input type="text" name="panne-description">
+        <button type="submit">Ajouter une panne</button>
+
+    </form>
+
+    {% for panne in panne %}
+        <h2>{{ panne.description}}</h2>
+    {% endfor %}
 
 </body>
 </html>
