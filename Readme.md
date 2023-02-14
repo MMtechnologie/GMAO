@@ -51,9 +51,9 @@
 
 [x] Création de machine
 
-[] Déclaration de panne
+[x] Déclaration de panne
 
-[] Affichage des panne
+[x] Affichage des panne
 
 [] Affichage des panne non traité
 

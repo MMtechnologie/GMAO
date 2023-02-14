@@ -20,6 +20,8 @@ import tasks.views as views
 urlpatterns = [
     path('', views.index, name="home"),
     path('add-machines', views.add_machine, name="add-machine"),
-    path('add-pannes', views.add_panne, name="add-pane"),
+    path('add-pannes', views.add_panne, name="add-panne"),
     path('admin/', admin.site.urls),
+    path('machines/', views.machine_list, name='machines'),
+    path('pannes/', views.panne_list, name='pannes'),
 ]

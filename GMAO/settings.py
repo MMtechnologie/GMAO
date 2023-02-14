@@ -55,7 +55,7 @@ ROOT_URLCONF = 'GMAO.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['tasks/templates/tasks'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

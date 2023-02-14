@@ -22,7 +22,7 @@ def add_machine(request):
         return HttpResponse("La Machine existe déja")
     # print(request.POST)
 
-    return redirect('home')
+    return redirect('machines')
 
 
 def add_panne(request):
@@ -39,10 +39,21 @@ def add_panne(request):
             # Création d'une nouvelle instance de l'objet Panne en lui assignant l'instance de la machine
             panne = Panne.objects.create(machine=machine, description=panne_description)
             # Redirection vers une page de confirmation ou de détails
-            return redirect('home')
+            return redirect('pannes')
         except Machine.DoesNotExist:
             # Retourner une erreur ou une réponse de validation
             return HttpResponse("La machine avec le nom spécifié n'existe pas.")
     else:
         # Retourner une erreur ou une réponse de validation
         return HttpResponse("Le nom de la machine n'a pas été spécifié.")
+
+
+def machine_list(request):
+    machines = Machine.objects.all()
+    return render(request, 'machine_list.html', {'machines': machines})
+
+
+def panne_list(request):
+    pannes = Panne.objects.all()
+    machines = Machine.objects.all()
+    return render(request, 'panne_list.html', {'pannes': pannes, 'machines': machines})
