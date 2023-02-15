@@ -37,6 +37,7 @@
           <th>Machine</th>
           <th>Description</th>
           <th>Date</th>
+          <th>Etat</th>
         </tr>
       </thead>
       <tbody>
@@ -46,7 +47,28 @@
             <td>{{ panne.machine.name }}</td>
             <td>{{ panne.description }}</td>
             <td>{{ panne.date }}</td>
+            <td>{{ panne.state }}</td>
+              <td>
+                <form action="{% url 'update-panne' panne.id %}" method="POST">
+                  {% csrf_token %}
+                  <div class="input-group">
+                    <select class="form-select" name="panne-state">
+                      <option value="0" {% if panne.state == 'Non résolue' %}selected{% endif %}>Non résolue</option>
+                      <option value="1" {% if panne.state == 'En cours' %}selected{% endif %}>En cours</option>
+                      <option value="2" {% if panne.state == 'Résolue' %}selected{% endif %}>Résolue</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary" title="Traiter">Traiter</button>
+                  </div>
+                </form>
+              </td>
+              <td>
+                <form action="{% url 'delete-panne' panne.id %}" method="POST">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-danger" title="Supprimer">Supprimer</button>
+                </form>
+            </td>
           </tr>
+
         {% endfor %}
       </tbody>
     </table>

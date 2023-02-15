@@ -24,4 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('machines/', views.machine_list, name='machines'),
     path('pannes/', views.panne_list, name='pannes'),
+    path('pannes/update-panne/<int:pk>/', views.update_panne, name='update-panne'),
+    path('pannes/delete-panne/<int:pk>/', views.delete_panne, name='delete-panne'),
 ]

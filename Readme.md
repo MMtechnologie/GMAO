@@ -44,6 +44,13 @@
 	- disponibiliter
 	- skill
 
+- Site
+  - id
+  - mame
+  - kbis
+
+- Machine
+  - ajout de site (foreignkey)
 
 
 
@@ -54,6 +61,10 @@
 [x] Déclaration de panne
 
 [x] Affichage des panne
+
+[x] Suppression de panne
+
+[x] Prise en charge de panne
 
 [] Affichage des panne non traité
 
@@ -67,6 +78,19 @@
 
 [] Affichage de l'intervention currative assigné a une panne
 
+[] Intégration d'un chat bot :
+	[] Déclaration d'une panne
+	[] Proposition de maintenace niveau 1 aprés déclaration.
+	[] Création d'une panne si maintenance niv 1 inefficace ou pas de mainteanance niv 1
+
+[] Mise en place d'un portail d'authentification :
+	[] Si pas d'authentification page chat bot
+	[] Si authentification maintenance accées a tout les volets du menu
+	[] Si authentification opérateur accées a la liste des pannes en cours
+
+[] Envoie de mail a la création de panne
+
+[] Création d'un pdf a la cloture d'une panne et a l'édition du curatif
 
 ### -----V2-------
 

@@ -25,7 +25,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.IntegerField(primary_key=True, serialize=False)),
                 ('description', models.TextField(max_length=150)),
-                ('Time', models.TimeField()),
+                ('Time', models.CharField(default=django.utils.timezone.now, max_length=20)),
                 ('state', models.CharField(max_length=10)),
                 ('machine', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='tasks.machine')),
             ],

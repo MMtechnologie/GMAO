@@ -7,6 +7,9 @@ class Machine(models.Model):
     name = models.CharField(max_length=50)
     state = models.CharField(max_length=10)
 
+    def __str__ (self):
+        return self.name
+
 
 class Panne(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -15,6 +18,8 @@ class Panne(models.Model):
     machine = models.ForeignKey(Machine, on_delete=models.CASCADE)
     time = models.TimeField(auto_now_add=True)
     state = models.CharField(max_length=10)
+    def __str__ (self):
+        return self.description
 
 
 class Curative(models.Model):

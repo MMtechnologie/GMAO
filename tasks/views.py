@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from django.utils.html import escape
 
@@ -37,7 +37,7 @@ def add_panne(request):
         try:
             machine = Machine.objects.get(name=name_machine)
             # Création d'une nouvelle instance de l'objet Panne en lui assignant l'instance de la machine
-            panne = Panne.objects.create(machine=machine, description=panne_description)
+            panne = Panne.objects.create(machine=machine, description=panne_description,time=timezone.now)
             # Redirection vers une page de confirmation ou de détails
             return redirect('pannes')
         except Machine.DoesNotExist:
@@ -57,3 +57,21 @@ def panne_list(request):
     pannes = Panne.objects.all()
     machines = Machine.objects.all()
     return render(request, 'panne_list.html', {'pannes': pannes, 'machines': machines})
+
+def delete_panne(request, pk):
+    panne = get_object_or_404(Panne, pk=pk)
+    if request.method == 'POST':
+        panne.delete()
+        return redirect('pannes')
+    return render(request, 'delete_panne.html', {'panne': panne})
+
+def update_panne(request, pk):
+    panne = get_object_or_404(Panne, id=pk)
+    if request.method == 'POST':
+        if panne.state == 'active':
+            panne.state = 'resolved'
+        else:
+            panne.state = 'active'
+        panne.save()
+        return redirect('pannes')
+    return render(request, 'update_panne.html', {'panne': panne})
